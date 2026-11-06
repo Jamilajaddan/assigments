@@ -5,6 +5,8 @@ use App\Models\Book;
 use App\Http\Controllers\PostController;
 use App\Mail\WelcomeEmail;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\DivisionController;
+
 
 Route::get('/book_list', function () {
     return view('create');
@@ -47,6 +49,8 @@ Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
 Route::put('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
 Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+Route::get('/division', [DivisionController::class, 'index']);
+Route::post('/division', [DivisionController::class, 'divide']);
 
 Route::get('/send-welcome', function () {
 
